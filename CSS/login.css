@@ -111,6 +111,11 @@ input {
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+    font-size: 22px;
+    background: transparent;
+    color: #01DFD7;
+    border: 2px solid #01DFD7;
+    font-family: '00499', Arial, sans-serif;
 }
 
 /* Style the submit button */
@@ -118,6 +123,13 @@ input[type=submit] {
     font-size: 22px;
     background-color: rgba(0, 0, 255, 0.6);
     color: white;
+    font-family: '00499', Arial, sans-serif;
+}
+
+input:focus, input:hover
+{
+    box-shadow: 0 0 10px #01DFD7;
+    z-index: 1;
 }
 
 /* Style the container for inputs */
@@ -154,7 +166,7 @@ input[type=submit] {
 }
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-    color: green;
+    color: #2AFE00;
 }
 
 .valid:before {
@@ -166,7 +178,7 @@ input[type=submit] {
 
 /* Add a red text color and an "x" when the requirements are wrong */
 .invalid {
-    color: red;
+    color: #FE2300;
 }
 
 .invalid:before {

@@ -53,7 +53,7 @@
 	    <label for="psw" class="user_password">Mot de passe</label>
 	    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 	    
-	    <input type="submit" value="Submit">
+	    <input type="submit" value="Connexion">
 	  </form>
 	</div>
 
