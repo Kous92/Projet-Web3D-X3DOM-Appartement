@@ -151,6 +151,22 @@ input:focus, input:hover
     font-size: 18px;
 }
 
+#message2 {
+    display: none;
+    width: 55%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+#message2 p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
 .user_email, .user_password
 {
     font-size: 22px;
@@ -178,6 +194,18 @@ input:focus, input:hover
     font-size: 18px;
     left: -35px;
     content: "✖";
+}
+
+#invalid_email, #invalid_password
+{
+    color: #FE2300;
+    font-size: 18px;
+}
+
+#response
+{
+    color: #01DFD7;
+    font-size: 18px;
 }
 
 /* Mobile responsive */

@@ -42,7 +42,7 @@
             <label for="psw_confirm" class="user_password_confirm">Confirmez le mot de passe</label>
             <input type="password" id="psw_confirm" name="psw_confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 
-            <input type="submit" value="Connexion">
+            <input type="submit" name="register" value="Connexion">
         </form>
     </div>
 
@@ -53,6 +53,15 @@
         <p id="number" class="invalid">Un <b>chiffre</b>.</p>
         <p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
     </div>
+
+    <div id="message2">
+        <h3>Le mot de passe de confirmation doit contenir au moins une fois les éléments suivants:</h3>
+        <p id="letter2" class="invalid">Une lettre <b>minuscule</b>.</p>
+        <p id="capital2" class="invalid">Une lettre <b>majuscule</b>.</p>
+        <p id="number2" class="invalid">Un <b>chiffre</b>.</p>
+        <p id="length2" class="invalid"><b>8 caractères</b> minimum.</p>
+        <p id="same" class="invalid">Les 2 mots de passe <b>sont identiques</b>.</p>
+    </div>
     <?php
     if (isset($_POST['usrname']) && isset($_POST['psw']))
     {
@@ -60,5 +69,5 @@
     }
     ?>
 </body>
-<script type="text/javascript" src="./JS/form_login.js"></script>
+<script type="text/javascript" src="./JS/form_register.js"></script>
 </html>

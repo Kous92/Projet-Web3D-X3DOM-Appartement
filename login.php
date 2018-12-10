@@ -7,6 +7,50 @@
 	<link rel="stylesheet" type="text/css" href="./CSS/login.css">
     <script type="text/javascript" src="./JS/navigation.js"></script>
     <script type="text/javascript" src="./JS/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log('OK, formulaire activé.');
+
+            // Listener au clic sur le bouton de connexion (submit)
+            $("#login").on('click', function(e){
+                e.preventDefault();
+
+                var email = $("#usrname").val();
+                console.log("Email saisi: " + $("#usrname").val());
+
+                var password = $("#psw").val();
+                console.log("Mot de passe saisi: " + $("#psw").val());
+
+                if ((email === "") && (password === ""))
+                {
+                    alert("Le formulaire est vide !");
+                }
+                else
+                {
+                    $.post('authentication.php', {
+                        email_ajax: email,
+                        password_ajax: password
+                    }, function(data) {
+                        if (data === 'Success')
+                        {
+                            $("#response").html("Connexion réussie.");
+                        }
+                        else
+                        {
+                            $("#response").html("La connexion a échoué.");
+                        }
+                    }, 'text');
+                }
+            })
+
+            /*
+            $('#submit').click(function () {
+                var username = $('#uname').val();
+                var password = $('#psw').val();
+            })
+            */
+        })
+    </script>
 	<title>Web & 3D</title>
 </head>
 <body>
@@ -33,14 +77,17 @@
 	<h1>Connexion</h1>
 
 	<div class="container">
-	  <form action="#" method="post">
+	  <form action="" method="post">
 	    <label for="usrname" class="user_email">Adresse e-mail</label>
-	    <input type="text" id="usrname" name="usrname" required>
+	    <input type="text" id="usrname" name="usrname">
+          <!-- <p id="invalid_email">Ce champ est obligatoire</p> -->
 
 	    <label for="psw" class="user_password">Mot de passe</label>
-	    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-	    
-	    <input type="submit" value="Connexion">
+	    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+          <!-- <p id="invalid_password">Ce champ est obligatoire</p> -->
+
+	    <input type="submit" name="login" id="login" value="Connexion">
+          <p id="response"></p>
 	  </form>
 	</div>
 
@@ -51,12 +98,6 @@
 		<p id="number" class="invalid">Un <b>chiffre</b>.</p>
 		<p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
 	</div>
-    <?php
-        if (isset($_POST['usrname']) && isset($_POST['psw']))
-        {
-
-        }
-    ?>
 </body>
 <script type="text/javascript" src="./JS/form_login.js"></script>
 </html>
