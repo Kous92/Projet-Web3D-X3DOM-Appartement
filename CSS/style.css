@@ -1,14 +1,12 @@
 @font-face 
 {
-    font-family: '00499';
-    src: url('./polices/00499-webfont.eot');
-    src: url('./polices/00499-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./polices/00499-webfont.woff2') format('woff2'),
-         url('./polices/00499-webfont.woff') format('woff'),
-         url('./polices/00499-webfont.ttf') format('truetype'),
-         url('./polices/00499-webfont.svg#00499') format('svg');
-    font-weight: normal;
-    font-style: normal;
+    font-family: '00499', Arial, sans-serif;
+    src: url('/polices/00499webfont.eot');
+    src: url('/polices/00499webfont.eot?#iefix') format('embedded-opentype'),
+         url('/polices/00499webfont.woff2') format('woff2'),
+         url('/polices/00499webfont.woff') format('woff'),
+         url('/polices/00499webfont.ttf') format('truetype'),
+         url('/polices/00499webfont.svg#00499webfont') format('svg');
 }
 
 html, body
@@ -22,9 +20,7 @@ html, body
 
 body
 {
-
-	font-family: sans-serif;
-	font-family: '00499', Arial, sans-serif;
+    font-family: '00499', Arial, sans-serif;
     background-image: url("moskva_city_skyscrapers_1.jpg");
     background-size: cover;
     background-attachment: fixed;
@@ -34,7 +30,7 @@ body
 .open 
 {
 	color: white;
-	top: 35px;
+	top: 20px;
     right: 45px;
     font-size: 60px;
 	float: right;
@@ -45,10 +41,10 @@ body
 
 h1
 {
-	margin-top: 40px;
+	margin-top: 35px;
 	color: black;
 	font-weight: lighter;
-	font-size: 62px;
+	font-size: 45px;
 	text-align: center;
 }
 
@@ -94,13 +90,85 @@ h1
     font-size: 60px;
 }
 
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+@media screen and (max-height: 450px)
+{
+  	.overlay a 
+  	{
+  		font-size: 20px;
+  	}
+
+	.overlay .closebtn
+	{
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+
+  	.open 
+	{
+		color: white;
+		top: 15px;
+	    right: 15px;
+	    font-size: 25px;
+	}
+}
+
+@media screen and (max-width : 580px) 
+{
+    h1
+    {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 25px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 581px) and (max-width : 800px) 
+{
+    h1
+    {
+        margin-top: 20px;
+        font-size: 35px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 35px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+    }
 }
 /*
 .nav

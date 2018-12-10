@@ -5,23 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex">
 	<link rel="stylesheet" type="text/css" href="./CSS/login.css">
-	<title> Web & 3D</title>
+    <script type="text/javascript" src="./JS/navigation.js"></script>
+    <script type="text/javascript" src="./JS/jquery-3.3.1.js"></script>
+	<title>Web & 3D</title>
 </head>
-
-<script type="text/javascript">
-	function openNav() 
-	{
-		document.getElementById("myNav").style.height = "100%";
-		document.getElementById("open").style.display = "none";
-	}
-
-	function closeNav() 
-	{
-		document.getElementById("myNav").style.height = "0%";
-		document.getElementById("open").style.display = "";
-	}
-</script>
-
 <body>
 	<!-- The overlay -->
 	<div id="myNav" class="overlay">
@@ -64,94 +51,12 @@
 		<p id="number" class="invalid">Un <b>chiffre</b>.</p>
 		<p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
 	</div>
+    <?php
+        if (isset($_POST['usrname']) && isset($_POST['psw']))
+        {
 
-	<!--
-	<div class="wrapper">
-		<div class="nav" id="nav">
-			<a href="javascript:void(0)" id="close" class="close">&times;</a>
-			<a href="#">Accueil</a>
-			<a href="#">About</a>
-			<a href="#">Blog</a>
-			<a href="#">Contact</a>
-		</div>
-
-		<span id="open" class="open">&#9776;</span>
-
-		<h1>Projet Web & 3D</h1>
-	</div>
-	!-->
+        }
+    ?>
 </body>
-<script type="text/javascript">
-	function openNav() 
-	{
-		document.getElementById("myNav").style.height = "100%";
-		document.getElementById("open").style.display = "none";
-	}
-
-	function closeNav() 
-	{
-		document.getElementById("myNav").style.height = "0%";
-		document.getElementById("open").style.display = "";
-	}
-
-	var myInput = document.getElementById("psw");
-	var letter = document.getElementById("letter");
-	var capital = document.getElementById("capital");
-	var number = document.getElementById("number");
-	var length = document.getElementById("length");
-
-	
-
-	// When the user clicks on the password field, show the message box
-	myInput.onfocus = function() {
-	    document.getElementById("message").style.display = "block";
-	}
-
-	// When the user clicks outside of the password field, hide the message box
-	myInput.onblur = function() {
-	    document.getElementById("message").style.display = "none";
-	}
-
-	// When the user starts to type something inside the password field
-	myInput.onkeyup = function() {
-	  // Validate lowercase letters
-	  var lowerCaseLetters = /[a-z]/g;
-	  if(myInput.value.match(lowerCaseLetters)) {  
-	    letter.classList.remove("invalid");
-	    letter.classList.add("valid");
-	  } else {
-	    letter.classList.remove("valid");
-	    letter.classList.add("invalid");
-	  }
-	  
-	  // Validate capital letters
-	  var upperCaseLetters = /[A-Z]/g;
-	  if(myInput.value.match(upperCaseLetters)) {  
-	    capital.classList.remove("invalid");
-	    capital.classList.add("valid");
-	  } else {
-	    capital.classList.remove("valid");
-	    capital.classList.add("invalid");
-	  }
-
-	  // Validate numbers
-	  var numbers = /[0-9]/g;
-	  if(myInput.value.match(numbers)) {  
-	    number.classList.remove("invalid");
-	    number.classList.add("valid");
-	  } else {
-	    number.classList.remove("valid");
-	    number.classList.add("invalid");
-	  }
-	  
-	  // Validate length
-	  if(myInput.value.length >= 8) {
-	    length.classList.remove("invalid");
-	    length.classList.add("valid");
-	  } else {
-	    length.classList.remove("valid");
-	    length.classList.add("invalid");
-	  }
-	}
-</script>
+<script type="text/javascript" src="./JS/form_login.js"></script>
 </html>
