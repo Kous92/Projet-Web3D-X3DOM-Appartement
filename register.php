@@ -7,6 +7,69 @@
 	<link rel="stylesheet" type="text/css" href="./CSS/login.css">
     <script type="text/javascript" src="./JS/navigation.js"></script>
     <script type="text/javascript" src="./JS/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log('OK, formulaire activé.');
+
+            // Listener au clic sur le bouton de connexion (submit)
+            $("#register").on('click', function(e){
+                e.preventDefault();
+
+                var email = $("#usrname").val();
+                console.log("Email saisi: " + $("#usrname").val());
+
+                var password = $("#psw").val();
+                console.log("Mot de passe saisi: " + $("#psw").val());
+
+                var password_confirm = $("#psw_confirm").val();
+                console.log("Mot de passe de confirmation saisi: " + $("#psw_confirm").val());
+
+                if ((email === "") && (password === "") && (password_confirm === ""))
+                {
+                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
+                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+                    $("#invalid_password_confirm").css("display", "block").html("Ce champ est obligatoire");
+                }
+                else if (password === "")
+                {
+                    $("#invalid_password").css("display", "block");
+                }
+                else if (password_confirm === "")
+                {
+                    $("#invalid_password_confirm").css("display", "block");
+                }
+                else
+                {
+                    $("#invalid_email").css("display", "none").html("");
+                    $("#invalid_password").css("display", "none").html("");
+                    $("#invalid_password_confirm").css("display", "none").html("");
+
+                    /*
+                    $.post('authentication.php', {
+                        email_ajax: email,
+                        password_ajax: password
+                    }, function(data) {
+                        if (data === 'Success')
+                        {
+                            $("#response").html("Connexion réussie.");
+                        }
+                        else
+                        {
+                            $("#response").html("La connexion a échoué.");
+                        }
+                    }, 'text');
+                    */
+                }
+            })
+
+            /*
+            $('#submit').click(function () {
+                var username = $('#uname').val();
+                var password = $('#psw').val();
+            })
+            */
+        })
+    </script>
 	<title> Web & 3D</title>
 </head>
 <body>
@@ -35,14 +98,14 @@
     <div class="container">
         <form action="#" method="post">
             <label for="usrname" class="user_email">Adresse e-mail</label>
-            <input type="text" id="usrname" name="usrname" required>
+            <input type="text" id="usrname" name="usrname">
 
             <label for="psw" class="user_password">Mot de passe</label>
-            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
             <label for="psw_confirm" class="user_password_confirm">Confirmez le mot de passe</label>
-            <input type="password" id="psw_confirm" name="psw_confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="password" id="psw_confirm" name="psw_confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
 
-            <input type="submit" name="register" value="Connexion">
+            <input type="submit" name="register" id="register" value="Inscription">
         </form>
     </div>
 
@@ -62,12 +125,7 @@
         <p id="length2" class="invalid"><b>8 caractères</b> minimum.</p>
         <p id="same" class="invalid">Les 2 mots de passe <b>sont identiques</b>.</p>
     </div>
-    <?php
-    if (isset($_POST['usrname']) && isset($_POST['psw']))
-    {
 
-    }
-    ?>
 </body>
 <script type="text/javascript" src="./JS/form_register.js"></script>
 </html>

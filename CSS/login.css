@@ -101,7 +101,7 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     font-size: 19px;
     background: transparent;
     color: #01DFD7;
@@ -167,7 +167,8 @@ input:focus, input:hover
     padding: 10px 35px;
     font-size: 18px;
 }
-.user_email, .user_password
+
+.user_email, .user_password, .user_password_confirm
 {
     font-size: 22px;
     text-align: left;
@@ -196,8 +197,10 @@ input:focus, input:hover
     content: "✖";
 }
 
-#invalid_email, #invalid_password
+#invalid_email, #invalid_password, #invalid_password_confirm
 {
+    display: none;
+    margin-bottom: 10px;
     color: #FE2300;
     font-size: 18px;
 }

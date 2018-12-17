@@ -23,10 +23,18 @@
 
                 if ((email === "") && (password === ""))
                 {
-                    alert("Le formulaire est vide !");
+                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
+                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+                }
+                else if (password === "")
+                {
+                    $("#invalid_password").css("display", "block");
                 }
                 else
                 {
+                    $("#invalid_email").css("display", "none").html("");
+                    $("#invalid_password").css("display", "none").html("");
+
                     $.post('authentication.php', {
                         email_ajax: email,
                         password_ajax: password
@@ -80,11 +88,11 @@
 	  <form action="" method="post">
 	    <label for="usrname" class="user_email">Adresse e-mail</label>
 	    <input type="text" id="usrname" name="usrname">
-          <!-- <p id="invalid_email">Ce champ est obligatoire</p> -->
+          <p id="invalid_email"></p>
 
 	    <label for="psw" class="user_password">Mot de passe</label>
 	    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-          <!-- <p id="invalid_password">Ce champ est obligatoire</p> -->
+          <p id="invalid_password"></p>
 
 	    <input type="submit" name="login" id="login" value="Connexion">
           <p id="response"></p>
