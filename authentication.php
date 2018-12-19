@@ -17,7 +17,7 @@
         }
     }
 
-    function connexionUtilisateur($email, $password)
+    function verifierUtilisateurExistant($email)
     {
         $mysql = initialisationMySQL();
         /* Authentification avec une requête SQL préparée avec le code secret saisi (comparaison avec les hachages)
@@ -34,14 +34,47 @@
         }
         else
         {
+            // L'email existe
+            if ($requete_preparee->rowCount() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    function connexionUtilisateur($email, $password)
+    {
+        $mysql = initialisationMySQL();
+        /* Authentification avec une requête SQL préparée avec le code secret saisi (comparaison avec les hachages)
+           Requête SQL: SELECT * FROM users WHERE email =  '$email' */
+        $requeteSQL = "SELECT * FROM users WHERE email = ?";
+        $requete_preparee = $mysql->prepare($requeteSQL);
+        $resultat = $requete_preparee->execute(array($email));
+
+        // Pas de résultat: requête invalide
+        if (!$resultat)
+        {
+            die("<p>Erreur: Échec de la requête avec " .$requeteSQL. "</p>");
+            // echo "Erreur SQL";
+            return false;
+        }
+        else
+        {
             // Si l'email existe, on va vérifier le mot de passe
             if ($requete_preparee->rowCount() > 0)
             {
+                // echo "Email existant...\n";
+
                 // Récupération du résultat
                 $ligne = $requete_preparee->fetch();
+                // echo "Mot de passe à comparer: \"" . $ligne['password'] . "\"\n";
 
                 // Mot de passe correct
-                if ($password == $ligne['password'])
+                if (password_verify($password, $ligne['password']))
                 {
                     return true;
                 }
@@ -56,20 +89,36 @@
 
     // $username = "kous92@gmail.com";
     // $password = "PSGefrei2018";
+    // print_r($_POST);
 
     if (isset($_POST['email_ajax']) && isset($_POST['password_ajax']))
     {
-        $_POST['password_ajax'] = htmlspecialchars(password_hash($_POST['password_ajax'], PASSWORD_BCRYPT));
+        // $_POST['password_ajax'] = htmlspecialchars(password_hash($_POST['password_ajax'], PASSWORD_BCRYPT));
+        $_POST['password_ajax'] = htmlspecialchars($_POST['password_ajax']);
         $password = $_POST['password_ajax'];
         $email = htmlspecialchars($_POST['email_ajax']);
 
-        if (connexionUtilisateur($email, $password))
+        // echo "Email: \"" . $_POST['email_ajax'] . "\"\n";
+        // echo "Mot de passe \"" . $_POST['password_ajax'] . "\"\n";
+
+        // print_r($_POST);
+
+        if (!verifierUtilisateurExistant($email))
         {
-            echo "Success";
+            echo "NoUserExists";
         }
         else
         {
-            echo "Failed";
+            // echo "Vérification...\n";
+
+            if (connexionUtilisateur($email, $password))
+            {
+                echo "Success";
+            }
+            else
+            {
+                echo "IncorrectPassword";
+            }
         }
 
         /*

@@ -11,6 +11,9 @@
         $(document).ready(function() {
             console.log('OK, formulaire activé.');
 
+            $("#invalid_email").css("display", "none").html("");
+            $("#invalid_password").css("display", "none").html("");
+
             // Listener au clic sur le bouton de connexion (submit)
             $("#login").on('click', function(e){
                 e.preventDefault();
@@ -28,7 +31,11 @@
                 }
                 else if (password === "")
                 {
-                    $("#invalid_password").css("display", "block");
+                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+                }
+                else if (email === "")
+                {
+                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
                 }
                 else
                 {
@@ -42,6 +49,14 @@
                         if (data === 'Success')
                         {
                             $("#response").html("Connexion réussie.");
+                        }
+                        else if (data === "NoUserExists")
+                        {
+                            $("#response").html("L'utilisateur n'existe pas.");
+                        }
+                        else if (data === "IncorrectPassword")
+                        {
+                            $("#response").html("Mot de passe incorrect.");
                         }
                         else
                         {
@@ -85,17 +100,17 @@
 	<h1>Connexion</h1>
 
 	<div class="container">
-	  <form action="" method="post">
-	    <label for="usrname" class="user_email">Adresse e-mail</label>
-	    <input type="text" id="usrname" name="usrname">
-          <p id="invalid_email"></p>
+        <form action="" method="post">
+	        <label for="usrname" class="user_email">Adresse e-mail</label>
+            <input type="text" id="usrname" name="usrname">
+                <p id="invalid_email"></p>
 
-	    <label for="psw" class="user_password">Mot de passe</label>
-	    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-          <p id="invalid_password"></p>
+	        <label for="psw" class="user_password">Mot de passe</label>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <p id="invalid_password"></p>
 
-	    <input type="submit" name="login" id="login" value="Connexion">
-          <p id="response"></p>
+            <input type="submit" name="login" id="login" value="Connexion">
+                <p id="response"></p>
 	  </form>
 	</div>
 

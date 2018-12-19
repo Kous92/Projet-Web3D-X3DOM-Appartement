@@ -15,6 +15,10 @@
             $("#register").on('click', function(e){
                 e.preventDefault();
 
+                $("#invalid_email").css("display", "none").html("");
+                $("#invalid_password").css("display", "none").html("");
+                $("#invalid_password_confirm").css("display", "none").html("");
+
                 var email = $("#usrname").val();
                 console.log("Email saisi: " + $("#usrname").val());
 
@@ -32,11 +36,15 @@
                 }
                 else if (password === "")
                 {
-                    $("#invalid_password").css("display", "block");
+                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
                 }
                 else if (password_confirm === "")
                 {
-                    $("#invalid_password_confirm").css("display", "block");
+                    $("#invalid_password_confirm").css("display", "block").html("Ce champ est obligatoire");
+                }
+                else if (password !== password_confirm)
+                {
+                    $("#invalid_password_confirm").css("display", "block").html("Erreur: les 2 mots de passe sont différents");
                 }
                 else
                 {
@@ -44,21 +52,25 @@
                     $("#invalid_password").css("display", "none").html("");
                     $("#invalid_password_confirm").css("display", "none").html("");
 
-                    /*
-                    $.post('authentication.php', {
+
+                    $.post('registration.php', {
                         email_ajax: email,
-                        password_ajax: password
+                        password_ajax: password,
+                        password_confirm_ajax: password_confirm
                     }, function(data) {
                         if (data === 'Success')
                         {
-                            $("#response").html("Connexion réussie.");
+                            $("#response").html("Votre compte a été créé avec succès.");
+                        }
+                        else if (data === "UserExists")
+                        {
+                            $("#response").html("Erreur, un compte existe déjà avec cette adresse e-mail.");
                         }
                         else
                         {
-                            $("#response").html("La connexion a échoué.");
+                            $("#response").html("L'inscription a échoué.");
                         }
                     }, 'text');
-                    */
                 }
             })
 
@@ -99,13 +111,18 @@
         <form action="#" method="post">
             <label for="usrname" class="user_email">Adresse e-mail</label>
             <input type="text" id="usrname" name="usrname">
+                <p id="invalid_email"></p>
 
             <label for="psw" class="user_password">Mot de passe</label>
             <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <p id="invalid_password"></p>
+
             <label for="psw_confirm" class="user_password_confirm">Confirmez le mot de passe</label>
             <input type="password" id="psw_confirm" name="psw_confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <p id="invalid_password_confirm"></p>
 
             <input type="submit" name="register" id="register" value="Inscription">
+                <p id="response"></p>
         </form>
     </div>
 
