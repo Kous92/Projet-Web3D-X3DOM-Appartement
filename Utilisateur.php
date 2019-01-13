@@ -51,8 +51,5 @@ class Utilisateur
         }
     }
 
-    public function authentification()
-    {
-        $requeteSQL = "SELECT * FROM ";
-    }
+
 }
