@@ -1,8 +1,11 @@
 <?php
-if (isset($_SESSION['user_id']))
-{
-    header("Location: index.html");
-}
+
+    session_start();
+
+    if (isset($_SESSION['user_id']))
+    {
+        header("Location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -63,11 +66,14 @@ if (isset($_SESSION['user_id']))
                         email_ajax: email,
                         password_ajax: password
                     }, function(data) {
+
+                        console.log(data);
+
                         if (data === 'Success')
                         {
                             // On redirige l'utilisateur
                             $("#response").html("Connexion réussie.");
-                            window.location = "index.php";
+                            window.location = "home.php";
                         }
                         else if (data === "NoUserExists")
                         {

@@ -1,9 +1,13 @@
 <?php
-if (!isset($_SESSION['user_id']))
-{
-    header("Location: index.html");
-    exit();
-}
+
+    session_start();
+
+    if (!isset($_SESSION['user_id']))
+    {
+        header("Location: index.php");
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,10 +99,11 @@ if (!isset($_SESSION['user_id']))
 
     <!-- Overlay content -->
     <div class="overlay-content">
-        <a href="index.html">Accueil</a>
+        <a href="index.php">Accueil</a>
         <a href="logout.php">Déconnexion</a>
-        <a href="about.html">À propos</a>
-        <a href="#">Visiter l'appartement</a>
+        <a href="account.php">Gestion du compte</a>
+        <a href="about.php">À propos</a>
+        <a href="visitor.php">Visiter l'appartement</a>
     </div>
 
 </div>

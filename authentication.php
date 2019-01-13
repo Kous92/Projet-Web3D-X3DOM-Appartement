@@ -1,5 +1,4 @@
 <?php
-
     function initialisationMySQL()
     {
         // Connexion à la base de données (méthode 1 avec PDO)
@@ -78,9 +77,10 @@
                 {
                     try
                     {
-                        session_start();
-
-                        $_SESSION['user_id'] = $email;
+                        if (!isset($_SESSION['user_id']))
+                        {
+                            $_SESSION['user_id'] = $email;
+                        }
 
                         // On va générer un token pour sécuriser la session, contre la faille CSRF
                         if (!isset($_SESSION['token']))
@@ -130,7 +130,27 @@
 
             if (connexionUtilisateur($email, $password))
             {
+                session_start();
+
+                if (!isset($_SESSION['user_id']))
+                {
+                    // echo "La session n'existe pas";
+                    $_SESSION['user_id'] = $email;
+                }
+
+                // On va générer un token pour sécuriser la session, contre la faille CSRF
+                if (!isset($_SESSION['token']))
+                {
+                    // echo "La session n'existe pas";
+                    $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
+                }
+
+                $_SESSION['auth'] = true;
+
                 echo "Success";
+
+                // header("Location: home.php");
+                // exit();
             }
             else
             {

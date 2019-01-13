@@ -1,7 +1,8 @@
 <?php
+    session_start();
     if (isset($_SESSION['user_id']))
     {
-        header("Location: index.html");
+        header("Location: index.php");
     }
 ?>
 
@@ -100,11 +101,9 @@
 
 	  <!-- Overlay content -->
 	  <div class="overlay-content">
-	    <a href="index.html">Accueil</a>
+	    <a href="index.php">Accueil</a>
 	    <a href="login.php">Connexion</a>
-	    <a href="register.php">Inscription</a>
-	    <a href="about.html">À propos</a>
-	    <a href="#">Visiter l'appartement</a>
+	    <a href="about.php">À propos</a>
 	  </div>
 
 	</div>

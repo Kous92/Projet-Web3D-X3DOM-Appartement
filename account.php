@@ -1,9 +1,11 @@
 <?php
-if (!isset($_SESSION['user_id']))
-{
-    header("Location: index.html");
-    exit();
-}
+    session_start();
+
+    if (!isset($_SESSION['user_id']))
+    {
+        header("Location: index.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -95,9 +97,9 @@ if (!isset($_SESSION['user_id']))
 
     <!-- Overlay content -->
     <div class="overlay-content">
-        <a href="index.html">Accueil</a>
+        <a href="index.php">Accueil</a>
         <a href="logout.php">Déconnexion</a>
-        <a href="about.html">À propos</a>
+        <a href="about.php">À propos</a>
         <a href="#">Visiter l'appartement</a>
     </div>
 
@@ -107,19 +109,23 @@ if (!isset($_SESSION['user_id']))
 <span id="open" class="open" onclick="openNav()">&#9776;</span>
 <span class="logo"><img src="./CSS/kcr_estate_agency_logo.png" class="logo" height="150" width="100"></span>
 
-<h1>Connexion</h1>
+<h1>Gestion de votre compte</h1>
 
 <div class="container">
     <form action="" method="post">
-        <label for="usrname" class="user_email">Adresse e-mail</label>
-        <input type="text" id="usrname" name="usrname">
+        <label for="user_email" class="user_email">Adresse e-mail</label>
+        <input type="text" id="user_email" name="user_email">
         <p id="invalid_email"></p>
 
-        <label for="psw" class="user_password">Mot de passe</label>
-        <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-        <p id="invalid_password"></p>
+        <label for="nom" class="nom">Nom</label>
+        <input type="text" id="nom" name="nom">
+        <p id="invalid_nom"></p>
 
-        <input type="submit" name="login" id="login" value="Connexion">
+        <label for="prenom" class="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom">
+        <p id="invalid_prenom"></p>
+
+        <input type="submit" name="save" id="save" value="Sauvegarder">
         <p id="response"></p>
     </form>
 </div>
