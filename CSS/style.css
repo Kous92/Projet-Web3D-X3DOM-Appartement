@@ -61,6 +61,17 @@ h1
 	transition: 0.4s;
 }
 
+span.logo
+{
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    float: left;
+    top: 20px;
+    left: 25px;
+    position: absolute;
+}
+
 .overlay-content
 {
 	position: relative;
@@ -79,11 +90,13 @@ h1
     transition: 0.3s;
 }
 
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover, .overlay a:focus
+{
     color: #f1f1f1;
 }
 
-.overlay .closebtn {
+.overlay .closebtn
+{
     position: absolute;
     top: 20px;
     right: 45px;
@@ -111,6 +124,23 @@ h1
 	    right: 15px;
 	    font-size: 25px;
 	}
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
 }
 
 @media screen and (max-width : 580px) 
@@ -139,6 +169,23 @@ h1
         top: 15px;
         right: 15px;
         font-size: 25px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
     }
 }
 
@@ -169,17 +216,21 @@ h1
         right: 15px;
         font-size: 35px;
     }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
 }
-/*
-.nav
-{
-	width: 100%
-	overflow-x: visible;
-	height: 100vh;
-	z-index: 1;
-	position: fixed;
-	background: rgba(0, 0, 255, 0.6);
-	transition: 0.3s;
-	display: block;
-}
-*/

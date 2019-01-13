@@ -1,3 +1,10 @@
+<?php
+    if (isset($_SESSION['user_id']))
+    {
+        header("Location: index.html");
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,20 +111,20 @@
 
     <!-- Use any element to open/show the overlay navigation menu -->
     <span id="open" class="open" onclick="openNav()">&#9776;</span>
-
+    <span class="logo"><img src="./CSS/kcr_estate_agency_logo.png" class="logo" height="150" width="100"></span>
     <h1>Inscription</h1>
 
     <div class="container">
         <form action="#" method="post">
-            <label for="usrname" class="user_email">Adresse e-mail</label>
+            <label for="usrname" class="user_email">Adresse e-mail <sup>*</sup></label>
             <input type="text" id="usrname" name="usrname">
                 <p id="invalid_email"></p>
 
-            <label for="psw" class="user_password">Mot de passe</label>
+            <label for="psw" class="user_password">Mot de passe <sup>*</sup></label>
             <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                 <p id="invalid_password"></p>
 
-            <label for="psw_confirm" class="user_password_confirm">Confirmez le mot de passe</label>
+            <label for="psw_confirm" class="user_password_confirm">Confirmez le mot de passe <sup>*</sup></label>
             <input type="password" id="psw_confirm" name="psw_confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                 <p id="invalid_password_confirm"></p>
 

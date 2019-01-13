@@ -76,6 +76,23 @@
                 // Mot de passe correct
                 if (password_verify($password, $ligne['password']))
                 {
+                    try
+                    {
+                        session_start();
+
+                        $_SESSION['user_id'] = $email;
+
+                        // On va générer un token pour sécuriser la session, contre la faille CSRF
+                        if (!isset($_SESSION['token']))
+                        {
+                            $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
+                        }
+                    }
+                    catch (Exception $e)
+                    {
+                        die('Erreur : ' . $e->getMessage());
+                    }
+
                     return true;
                 }
                 else

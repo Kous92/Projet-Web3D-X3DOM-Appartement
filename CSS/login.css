@@ -42,6 +42,16 @@ body
 	position: absolute;
 }
 
+span.logo
+{
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    float: left;
+    top: 20px;
+    left: 25px;
+}
+
 h1
 {
 	margin-top: 35px;
@@ -94,10 +104,10 @@ h1
 }
 
 /* Formulaire de connexion */
-input {
+input
+{
     width: 100%;
     padding: 6px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
@@ -121,6 +131,11 @@ input:focus, input:hover
 {
     box-shadow: 0 0 10px #01DFD7;
     z-index: 1;
+}
+
+sup
+{
+    color: #FE2300;
 }
 
 /* Style the container for inputs */
@@ -250,6 +265,7 @@ input:focus, input:hover
     .container {
         padding: 10px;
         width: 75%;
+        margin-top: 100px;
     }
 
     /* The message box is shown when the user clicks on the password field */
@@ -268,6 +284,23 @@ input:focus, input:hover
     .invalid:before 
     {
         font-size: 12px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
     }
 }
 
@@ -309,6 +342,7 @@ input:focus, input:hover
     .container {
         padding: 15px;
         width: 65%;
+        margin-top: 100px;
     }
 
     /* The message box is shown when the user clicks on the password field */
@@ -327,5 +361,22 @@ input:focus, input:hover
     .invalid:before 
     {
         font-size: 15px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
     }
 }

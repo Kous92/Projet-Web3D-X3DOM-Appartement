@@ -1,0 +1,364 @@
+@font-face
+{
+    font-family: '00499';
+    src: url('/polices/00499webfont.eot');
+    src: url('/polices/00499webfont.eot') format('embedded-opentype'),
+    url('/polices/00499webfont.woff2') format('woff2'),
+    url('/polices/00499webfont.woff') format('woff'),
+    url('/polices/00499webfont.ttf') format('truetype'),
+    url('/polices/00499webfont.svg#00499') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body
+{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+}
+
+body
+{
+    font-family: '00499', Arial, sans-serif;
+    background-image: url("moskva_city_skyscrapers_3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.open
+{
+    color: white;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    float: right;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+}
+
+span.logo
+{
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    float: left;
+    top: 20px;
+    left: 25px;
+}
+
+#title
+{
+    margin-top: 35px;
+    color: white;
+    font-weight: lighter;
+    font-size: 45px;
+    text-align: center;
+}
+
+.overlay
+{
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-x: hidden;
+    transition: 0.4s;
+}
+
+.overlay-content
+{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a
+{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus
+{
+    color: #f1f1f1;
+}
+
+.overlay .closebtn
+{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+sup
+{
+    color: #FE2300;
+}
+
+/* Style the container for inputs */
+.container
+{
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    width: 75%;
+    margin: auto;
+    border-radius: 6px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.container #sub_title
+{
+    margin-top: 25px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.authors
+{
+    margin-top: 40px;
+    text-align: left;
+}
+
+.authors #author_title
+{
+    color: gold;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo_zone
+{
+    margin-top: 30px;
+}
+
+.logo_zone ul
+{
+    margin-left: -40px;
+}
+
+.logo_zone ul li
+{
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo_zone ul li a
+{
+    font-size: 25px;
+    color: #01DFD7;
+}
+
+.logo_zone ul li
+{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.logo_zone ul li a:hover, .logo_zone ul li a:focus
+{
+    color: gold;
+}
+
+.logo_zone ul li a:visited
+{
+    color: #01DFD7;
+}
+
+.logo_zone ul li:nth-child(1)
+{
+    margin: 0;
+}
+
+.logo_zone ul li:nth-child(2)
+{
+    font-size: 20px;
+}
+
+.logo_zone #networks
+{
+    color: gold;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about
+{
+    margin-top: 50px;
+}
+
+/* Mobile responsive */
+@media screen and (max-width : 580px)
+{
+    h1
+    {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+
+    input
+    {
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 25px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 25px;
+    }
+
+    /* Style the container for inputs */
+    .container {
+        padding: 10px;
+        width: 75%;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    /* The message box is shown when the user clicks on the password field */
+    #message {
+        display: none;
+        width: 75%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .valid:before
+    {
+        font-size: 12px;
+    }
+
+    .invalid:before
+    {
+        font-size: 12px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
+}
+
+@media screen and (min-width: 581px) and (max-width : 800px)
+{
+    h1
+    {
+        margin-top: 20px;
+        font-size: 35px;
+    }
+
+    input
+    {
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 35px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+    }
+
+    /* Style the container for inputs */
+    .container
+    {
+        padding: 15px;
+        width: 65%;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    /* The message box is shown when the user clicks on the password field */
+    #message
+    {
+        display: none;
+        width: 65%;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .valid:before
+    {
+        font-size: 15px;
+    }
+
+    .invalid:before
+    {
+        font-size: 15px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
+}

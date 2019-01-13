@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION['user_id']))
+{
+    header("Location: index.html");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,19 +35,29 @@
                 {
                     $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
                     $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+                    $("#usrname").css("border", "2px solid #FE2300");
+                    $("#psw").css("border", "2px solid #FE2300");
                 }
                 else if (password === "")
                 {
+                    $("#invalid_email").css("display", "none").html("");
                     $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+                    $("#usrname").css("border", "2px solid #01DFD7");
+                    $("#psw").css("border", "2px solid #FE2300");
                 }
                 else if (email === "")
                 {
                     $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
+                    $("#invalid_password").css("display", "none").html("");
+                    $("#usrname").css("border", "2px solid #FE2300");
+                    $("#psw").css("border", "2px solid #01DFD7");
                 }
                 else
                 {
                     $("#invalid_email").css("display", "none").html("");
                     $("#invalid_password").css("display", "none").html("");
+                    $("#usrname").css("border", "2px solid #01DFD7");
+                    $("#psw").css("border", "2px solid #01DFD7");
 
                     $.post('authentication.php', {
                         email_ajax: email,
@@ -48,7 +65,9 @@
                     }, function(data) {
                         if (data === 'Success')
                         {
+                            // On redirige l'utilisateur
                             $("#response").html("Connexion réussie.");
+                            window.location = "index.php";
                         }
                         else if (data === "NoUserExists")
                         {
@@ -96,16 +115,16 @@
 
 	<!-- Use any element to open/show the overlay navigation menu -->
 	<span id="open" class="open" onclick="openNav()">&#9776;</span>
-
+    <span class="logo"><img src="./CSS/kcr_estate_agency_logo.png" class="logo" height="150" width="100"></span>
 	<h1>Connexion</h1>
 
 	<div class="container">
         <form action="" method="post">
-	        <label for="usrname" class="user_email">Adresse e-mail</label>
+	        <label for="usrname" class="user_email">Adresse e-mail <sup>*</sup></label>
             <input type="text" id="usrname" name="usrname">
                 <p id="invalid_email"></p>
 
-	        <label for="psw" class="user_password">Mot de passe</label>
+	        <label for="psw" class="user_password">Mot de passe <sup>*</sup></label>
             <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                 <p id="invalid_password"></p>
 
