@@ -3,10 +3,10 @@
     font-family: '00499';
     src: url('/polices/00499webfont.eot');
     src: url('/polices/00499webfont.eot') format('embedded-opentype'),
-        url('/polices/00499webfont.woff2') format('woff2'),
-        url('/polices/00499webfont.woff') format('woff'),
-        url('/polices/00499webfont.ttf') format('truetype'),
-        url('/polices/00499webfont.svg#00499') format('svg');
+    url('/polices/00499webfont.woff2') format('woff2'),
+    url('/polices/00499webfont.woff') format('woff'),
+    url('/polices/00499webfont.ttf') format('truetype'),
+    url('/polices/00499webfont.svg#00499') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -22,24 +22,24 @@ html, body
 body
 {
 
-	font-family: sans-serif;
-	font-family: '00499', Arial, sans-serif;
-    background-image: url("moskva_city_skyscrapers_2.jpg");
+    font-family: sans-serif;
+    font-family: '00499', Arial, sans-serif;
+    background-image: url("la_defense_skyscrapers1.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
-.open 
+.open
 {
-	color: white;
-	top: 20px;
+    color: white;
+    top: 20px;
     right: 45px;
     font-size: 60px;
-	float: right;
-	display: block;
-	cursor: pointer;
-	position: absolute;
+    float: right;
+    display: block;
+    cursor: pointer;
+    position: absolute;
 }
 
 span.logo
@@ -54,33 +54,33 @@ span.logo
 
 h1
 {
-	margin-top: 35px;
-	color: white;
-	font-weight: lighter;
-	font-size: 45px;
-	text-align: center;
+    margin-top: 35px;
+    color: white;
+    font-weight: lighter;
+    font-size: 45px;
+    text-align: center;
 }
 
 .overlay
 {
-	height: 0%;
-	width: 100%;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.8);
-	overflow-x: hidden;
-	transition: 0.4s;
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-x: hidden;
+    transition: 0.4s;
 }
 
 .overlay-content
 {
-	position: relative;
-	top: 25%;
-	width: 100%;
-	text-align: center;
-	margin-top: 30px;
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .overlay a {
@@ -139,8 +139,7 @@ sup
 }
 
 /* Style the container for inputs */
-.container
-{
+.container {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     width: 55%;
@@ -150,8 +149,7 @@ sup
 }
 
 /* The message box is shown when the user clicks on the password field */
-#message
-{
+#message {
     display: none;
     width: 55%;
     margin: auto;
@@ -163,14 +161,12 @@ sup
     border-radius: 6px;
 }
 
-#message p
-{
+#message p {
     padding: 10px 35px;
     font-size: 18px;
 }
 
-#message2
-{
+#message2 {
     display: none;
     width: 55%;
     margin: auto;
@@ -182,14 +178,17 @@ sup
     border-radius: 6px;
 }
 
-#message2 p
-{
+#message2 p {
     padding: 10px 35px;
     font-size: 18px;
 }
 
-#message_email
-{
+#message_email p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+#message_email {
     display: none;
     width: 55%;
     margin: auto;
@@ -201,17 +200,12 @@ sup
     border-radius: 6px;
 }
 
-#message_email p
-{
-    padding: 10px 35px;
-    font-size: 18px;
-}
-
-.user_email, .user_password, .user_password_confirm
+.user_email, .nom, .prenom
 {
     font-size: 22px;
     text-align: left;
 }
+
 /* Add a green text color and a checkmark when the requirements are right */
 .valid
 {
@@ -240,7 +234,7 @@ sup
     content: "✖";
 }
 
-#invalid_email, #invalid_password, #invalid_password_confirm
+#invalid_email, #invalid_nom, #invalid_prenom
 {
     display: none;
     margin-bottom: 10px;
@@ -255,7 +249,7 @@ sup
 }
 
 /* Mobile responsive */
-@media screen and (max-width : 580px) 
+@media screen and (max-width : 580px)
 {
     h1
     {
@@ -263,7 +257,7 @@ sup
         font-size: 25px;
     }
 
-    input 
+    input
     {
         font-size: 14px;
         padding: 4px;
@@ -304,12 +298,12 @@ sup
         margin-top: 10px;
     }
 
-    .valid:before 
+    .valid:before
     {
         font-size: 12px;
     }
 
-    .invalid:before 
+    .invalid:before
     {
         font-size: 12px;
     }
@@ -332,7 +326,7 @@ sup
     }
 }
 
-@media screen and (min-width: 581px) and (max-width : 800px) 
+@media screen and (min-width: 581px) and (max-width : 800px)
 {
     h1
     {
@@ -340,7 +334,7 @@ sup
         font-size: 35px;
     }
 
-    input 
+    input
     {
         font-size: 16px;
         padding: 6px;
@@ -381,12 +375,12 @@ sup
         margin-top: 10px;
     }
 
-    .valid:before 
+    .valid:before
     {
         font-size: 15px;
     }
 
-    .invalid:before 
+    .invalid:before
     {
         font-size: 15px;
     }

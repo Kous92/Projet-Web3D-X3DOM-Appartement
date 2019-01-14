@@ -17,88 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./CSS/login.css">
     <script type="text/javascript" src="./JS/navigation.js"></script>
     <script type="text/javascript" src="./JS/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            console.log('OK, formulaire activé.');
-
-            $("#invalid_email").css("display", "none").html("");
-            $("#invalid_password").css("display", "none").html("");
-
-            // Listener au clic sur le bouton de connexion (submit)
-            $("#login").on('click', function(e){
-                e.preventDefault();
-
-                var email = $("#usrname").val();
-                console.log("Email saisi: " + $("#usrname").val());
-
-                var password = $("#psw").val();
-                console.log("Mot de passe saisi: " + $("#psw").val());
-
-                if ((email === "") && (password === ""))
-                {
-                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
-                    $("#usrname").css("border", "2px solid #FE2300");
-                    $("#psw").css("border", "2px solid #FE2300");
-                }
-                else if (password === "")
-                {
-                    $("#invalid_email").css("display", "none").html("");
-                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
-                    $("#usrname").css("border", "2px solid #01DFD7");
-                    $("#psw").css("border", "2px solid #FE2300");
-                }
-                else if (email === "")
-                {
-                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-                    $("#invalid_password").css("display", "none").html("");
-                    $("#usrname").css("border", "2px solid #FE2300");
-                    $("#psw").css("border", "2px solid #01DFD7");
-                }
-                else
-                {
-                    $("#invalid_email").css("display", "none").html("");
-                    $("#invalid_password").css("display", "none").html("");
-                    $("#usrname").css("border", "2px solid #01DFD7");
-                    $("#psw").css("border", "2px solid #01DFD7");
-
-                    $.post('authentication.php', {
-                        email_ajax: email,
-                        password_ajax: password
-                    }, function(data) {
-
-                        console.log(data);
-
-                        if (data === 'Success')
-                        {
-                            // On redirige l'utilisateur
-                            $("#response").html("Connexion réussie.");
-                            window.location = "home.php";
-                        }
-                        else if (data === "NoUserExists")
-                        {
-                            $("#response").html("L'utilisateur n'existe pas.");
-                        }
-                        else if (data === "IncorrectPassword")
-                        {
-                            $("#response").html("Mot de passe incorrect.");
-                        }
-                        else
-                        {
-                            $("#response").html("La connexion a échoué.");
-                        }
-                    }, 'text');
-                }
-            })
-
-            /*
-            $('#submit').click(function () {
-                var username = $('#uname').val();
-                var password = $('#psw').val();
-            })
-            */
-        })
-    </script>
+    <script type="text/javascript" src="./JS/ajax_login.js"></script>
 	<title>Web & 3D</title>
 </head>
 <body>
@@ -110,10 +29,10 @@
 
 	  <!-- Overlay content -->
 	  <div class="overlay-content">
-	    <a href="index.html">Accueil</a>
+	    <a href="index.php">Accueil</a>
 	    <a href="login.php">Connexion</a>
 	    <a href="register.php">Inscription</a>
-	    <a href="about.html">À propos</a>
+	    <a href="about.php">À propos</a>
 	    <a href="#">Visiter l'appartement</a>
 	  </div>
 
@@ -139,6 +58,11 @@
 	  </form>
 	</div>
 
+    <div id="message_email">
+        <h3>L'adresse email doit être valide:</h3>
+        <p id="email_message" class="invalid">L'adresse email est de la forme nom@serveur.domaine</p>
+    </div>
+
 	<div id="message">
 		<h3>Le mot de passe doit contenir au moins une fois les éléments suivants:</h3>
 		<p id="letter" class="invalid">Une lettre <b>minuscule</b>.</p>
@@ -146,6 +70,7 @@
 		<p id="number" class="invalid">Un <b>chiffre</b>.</p>
 		<p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
 	</div>
+
 </body>
 <script type="text/javascript" src="./JS/form_login.js"></script>
 </html>

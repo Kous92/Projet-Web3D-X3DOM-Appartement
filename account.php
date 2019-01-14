@@ -14,78 +14,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" type="text/css" href="./CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/account.css">
     <script type="text/javascript" src="./JS/navigation.js"></script>
     <script type="text/javascript" src="./JS/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            console.log('OK, formulaire activé.');
-
-            $("#invalid_email").css("display", "none").html("");
-            $("#invalid_password").css("display", "none").html("");
-
-            // Listener au clic sur le bouton de connexion (submit)
-            $("#login").on('click', function(e){
-                e.preventDefault();
-
-                var email = $("#usrname").val();
-                console.log("Email saisi: " + $("#usrname").val());
-
-                var password = $("#psw").val();
-                console.log("Mot de passe saisi: " + $("#psw").val());
-
-                if ((email === "") && (password === ""))
-                {
-                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
-                }
-                else if (password === "")
-                {
-                    $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
-                }
-                else if (email === "")
-                {
-                    $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-                }
-                else
-                {
-                    $("#invalid_email").css("display", "none").html("");
-                    $("#invalid_password").css("display", "none").html("");
-
-                    $.post('authentication.php', {
-                        email_ajax: email,
-                        password_ajax: password
-                    }, function(data) {
-                        if (data === 'Success')
-                        {
-                            // On redirige l'utilisateur
-                            $("#response").html("Connexion réussie.");
-                            window.location = "index.php";
-                        }
-                        else if (data === "NoUserExists")
-                        {
-                            $("#response").html("L'utilisateur n'existe pas.");
-                        }
-                        else if (data === "IncorrectPassword")
-                        {
-                            $("#response").html("Mot de passe incorrect.");
-                        }
-                        else
-                        {
-                            $("#response").html("La connexion a échoué.");
-                        }
-                    }, 'text');
-                }
-            })
-
-            /*
-            $('#submit').click(function () {
-                var username = $('#uname').val();
-                var password = $('#psw').val();
-            })
-            */
-        })
-    </script>
+    <script type="text/javascript" src="./JS/ajax_account.js"></script>
     <title>Web & 3D</title>
 </head>
 <body>
@@ -100,7 +32,7 @@
         <a href="index.php">Accueil</a>
         <a href="logout.php">Déconnexion</a>
         <a href="about.php">À propos</a>
-        <a href="#">Visiter l'appartement</a>
+        <a href="visitor.php">Visiter l'appartement</a>
     </div>
 
 </div>
@@ -114,7 +46,7 @@
 <div class="container">
     <form action="" method="post">
         <label for="user_email" class="user_email">Adresse e-mail</label>
-        <input type="text" id="user_email" name="user_email">
+        <input type="text" id="user_email" name="user_email" value="<?php echo $_SESSION['user_id'] ?>">
         <p id="invalid_email"></p>
 
         <label for="nom" class="nom">Nom</label>
@@ -125,9 +57,16 @@
         <input type="text" id="prenom" name="prenom">
         <p id="invalid_prenom"></p>
 
-        <input type="submit" name="save" id="save" value="Sauvegarder">
+        <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token'] ?>">
+
+        <input type="submit" name="update" id="update" value="Sauvegarder">
         <p id="response"></p>
     </form>
+</div>
+
+<div id="message_email">
+    <h3>L'adresse email doit être valide:</h3>
+    <p id="email_message" class="invalid">L'adresse email est de la forme nom@serveur.domaine</p>
 </div>
 
 <div id="message">
@@ -138,5 +77,5 @@
     <p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
 </div>
 </body>
-<script type="text/javascript" src="./JS/form_login.js"></script>
+<script type="text/javascript" src="./JS/form_account.js"></script>
 </html>
