@@ -68,7 +68,6 @@
         <li><input type="button" id="button_Inside" value="Vue sur l'appartement" onclick="View(1)"/></li>
         <li><input type="button" id="button_Outside" value="Vue sur le bâtiment" onclick="View(0)"/></li>
     </ul>
-    <p id="x3d_loading">Chargement en cours, veuillez patienter...</p>
     <scene>
         <Switch whichChoice="0" id="building">
             <inline url="Model.x3d">  <!-- Le bâtiment -->
