@@ -115,6 +115,16 @@ class Utilisateur
                     }
                     else
                     {
+                        if (!isset($_SESSION))
+                        {
+                            session_start();
+                            $_SESSION['nom'] = $this->nom;
+                        }
+                        else
+                        {
+                            $_SESSION['nom'] = $this->nom;
+                        }
+
                         return true;
                     }
                 }
@@ -165,6 +175,16 @@ class Utilisateur
                     }
                     else
                     {
+                        if (!isset($_SESSION))
+                        {
+                            session_start();
+                            $_SESSION['prenom'] = $this->prenom;
+                        }
+                        else
+                        {
+                            $_SESSION['prenom'] = $this->prenom;
+                        }
+
                         return true;
                     }
                 }
@@ -427,7 +447,7 @@ if (isset($_POST['ajax_account']) && isset($_POST['ajax_update']))
             {
                 echo "UpdatedPrenomEmail";
             }
-            else if ($prenom_modifie && ($nom_modifie == 1))
+            else if (($prenom_modifie == 1) && ($nom_modifie == 1))
             {
                 echo "UpdatedNomPrenom";
             }

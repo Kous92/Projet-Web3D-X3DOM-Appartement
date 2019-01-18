@@ -133,7 +133,7 @@ $(document).ready(function() {
                 }
                 else if (data === "UpdatedNomPrenom")
                 {
-                    $("#response").html("L'adresse email et le prénom ont été mis à jour.");
+                    $("#response").html("Le nom et le prénom ont été mis à jour.");
                 }
                 else if (data === "UpdatedEmail")
                 {

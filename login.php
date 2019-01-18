@@ -30,10 +30,8 @@
 	  <!-- Overlay content -->
 	  <div class="overlay-content">
 	    <a href="index.php">Accueil</a>
-	    <a href="login.php">Connexion</a>
 	    <a href="register.php">Inscription</a>
 	    <a href="about.php">À propos</a>
-	    <a href="#">Visiter l'appartement</a>
 	  </div>
 
 	</div>

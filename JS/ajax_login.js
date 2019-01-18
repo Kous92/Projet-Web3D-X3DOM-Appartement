@@ -11,10 +11,24 @@ function verfierFormatMotDePasse(password)
 
     if ((password.match(lowerCaseLetters)) && (password.match(upperCaseLetters)) && (password.match(numbers)) && (password.length >= 8))
     {
+        $("#invalid_password").css("display", "none").html("");
+        $("#psw").css("border", "2px solid #01DFD7");
+
         return true;
     }
     else
     {
+        if (password === "")
+        {
+            $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
+            $("#psw").css("border", "2px solid #FE2300");
+        }
+        else
+        {
+            $("#invalid_password").css("display", "block").html("Le format du mot de passe est invalide");
+            $("#psw").css("border", "2px solid #FE2300");
+        }
+
         return false;
     }
 }
@@ -26,10 +40,24 @@ function verfierFormatEmail(email)
 
     if (email.match(emailCharacters))
     {
+        $("#invalid_email").css("display", "none").html("");
+        $("#usrname").css("border", "2px solid #01DFD7");
+
         return true;
     }
     else
     {
+        if (email === "")
+        {
+            $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");;
+            $("#usrname").css("border", "2px solid #FE2300");
+        }
+        else
+        {
+            $("#invalid_email").css("display", "block").html("L'adresse e-mail est invalide");
+            $("#usrname").css("border", "2px solid #FE2300");
+        }
+
         return false;
     }
 }
@@ -39,6 +67,8 @@ $(document).ready(function() {
 
     $("#invalid_email").css("display", "none").html("");
     $("#invalid_password").css("display", "none").html("");
+    $("#usrname").css("border", "2px solid #01DFD7");
+    $("#psw").css("border", "2px solid #01DFD7");
 
     // Listener au clic sur le bouton de connexion (submit)
     $("#login").on('click', function(e){
@@ -50,74 +80,47 @@ $(document).ready(function() {
         var password = $("#psw").val();
         console.log("Mot de passe saisi: " + $("#psw").val());
 
-        if ((email === "") && (password === ""))
+        var email_valide = verfierFormatEmail(email);
+        var mdp_valide = verfierFormatMotDePasse(password);
+
+        // Vérification du formulaire
+        if ((mdp_valide === true) && (email_valide === true))
         {
-            $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-            $("#invalid_password").css("display", "block").html("Ce champ est obligatoire");
-            $("#usrname").css("border", "2px solid #FE2300");
-            $("#psw").css("border", "2px solid #FE2300");
-        }
-        else if ((!verfierFormatEmail(email)) && (!verfierFormatMotDePasse(password)))
-        {
-            $("#invalid_email").css("display", "block").html("L'adresse email est invalide");
-            $("#invalid_password").css("display", "block").html("Le format du mot de passe est invalide");
-            $("#usrname").css("border", "2px solid #FE2300");
-            $("#psw").css("border", "2px solid #FE2300");
-        }
-        else if ((!verfierFormatEmail(email)) && (password === ""))
-        {
-            $("#invalid_email").css("display", "block").html("L'adresse email est invalide");
-            $("#invalid_password").css("display", "none").html("Ce champ est obligatoire");
-            $("#usrname").css("border", "2px solid #FE23000");
-            $("#psw").css("border", "2px solid #FE2300");
-        }
-        else if ((!verfierFormatMotDePasse(password)) && (email === ""))
-        {
-            $("#invalid_email").css("display", "block").html("Ce champ est obligatoire");
-            $("#invalid_password").css("display", "block").html("Le format du mot de passe est invalide");
+            $("#invalid_email").css("display", "none").html("");
+            $("#invalid_password").css("display", "none").html("");
             $("#usrname").css("border", "2px solid #01DFD7");
-            $("#psw").css("border", "2px solid #FE2300");
+            $("#psw").css("border", "2px solid #01DFD7");
+
+            $.post('authentication.php', {
+                email_ajax: email,
+                password_ajax: password
+            }, function(data) {
+
+                console.log(data);
+
+                if (data === 'Success')
+                {
+                    // On redirige l'utilisateur
+                    $("#response").html("Connexion réussie.");
+                    window.location = "index.php";
+                }
+                else if (data === "NoUserExists")
+                {
+                    $("#response").html("L'utilisateur n'existe pas.");
+                }
+                else if (data === "IncorrectPassword")
+                {
+                    $("#response").html("Mot de passe incorrect.");
+                }
+                else
+                {
+                    $("#response").html("La connexion a échoué.");
+                }
+            }, 'text');
         }
         else
         {
-            if ((verfierFormatEmail(email)) && (verfierFormatMotDePasse(password)))
-            {
-                $("#invalid_email").css("display", "none").html("");
-                $("#invalid_password").css("display", "none").html("");
-                $("#usrname").css("border", "2px solid #01DFD7");
-                $("#psw").css("border", "2px solid #01DFD7");
-
-                $.post('authentication.php', {
-                    email_ajax: email,
-                    password_ajax: password
-                }, function(data) {
-
-                    console.log(data);
-
-                    if (data === 'Success')
-                    {
-                        // On redirige l'utilisateur
-                        $("#response").html("Connexion réussie.");
-                        window.location = "index.php";
-                    }
-                    else if (data === "NoUserExists")
-                    {
-                        $("#response").html("L'utilisateur n'existe pas.");
-                    }
-                    else if (data === "IncorrectPassword")
-                    {
-                        $("#response").html("Mot de passe incorrect.");
-                    }
-                    else
-                    {
-                        $("#response").html("La connexion a échoué.");
-                    }
-                }, 'text');
-            }
-            else
-            {
-                $("#response").html("Erreur dans le formulaire.");
-            }
+            $("#response").html("Erreur dans le formulaire.");
         }
     })
 });
