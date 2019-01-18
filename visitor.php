@@ -70,8 +70,8 @@
     </ul>
     <scene>
         <Switch whichChoice="0" id="building">
-            <inline url="Model.x3d">  <!-- Le bâtiment -->
-            <inline url="flat.x3d"> </inline> <!-- L'appartement -->
+            <inline url="Model.x3d"></inline> <!-- L'appartement -->
+            <inline url="flat.x3d"></inline> <!-- Le bâtiment -->
         </Switch>
     </scene>
 </x3d>

@@ -40,6 +40,9 @@ CREATE TABLE users (
 -- Déchargement des données de la table users
 --
 
+---
+--- Mot de passe: AdminKCR2019
+---
 INSERT INTO users (id, email, password, nom, prenom, visited) VALUES
 (1, 'admin@kcr.fr', '$2y$10$GpxYpqxHujQ4SZxCaVplauE7vw53byah6UkFLS9kYmPvEVS2d6h1q', 'BEN MAMAR', 'Koussaïla', 0);
 
