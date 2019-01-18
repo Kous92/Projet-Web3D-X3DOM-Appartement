@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  web3d
 --
-
+CREATE DATABASE IF NOT EXISTS web3d DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE web3d;
 -- --------------------------------------------------------
 
 --
