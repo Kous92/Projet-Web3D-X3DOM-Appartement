@@ -120,7 +120,8 @@ input
 }
 
 /* Style the submit button */
-input[type=submit] {
+input[type=submit]
+{
     font-size: 19px;
     background-color: rgba(0, 0, 255, 0.6);
     color: white;

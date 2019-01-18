@@ -1,0 +1,370 @@
+@font-face
+{
+    font-family: '00499';
+    src: url('/polices/00499webfont.eot');
+    src: url('/polices/00499webfont.eot') format('embedded-opentype'),
+    url('/polices/00499webfont.woff2') format('woff2'),
+    url('/polices/00499webfont.woff') format('woff'),
+    url('/polices/00499webfont.ttf') format('truetype'),
+    url('/polices/00499webfont.svg#00499') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body
+{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+}
+
+body
+{
+    font-family: '00499', Arial, sans-serif;
+    background-image: url("la_defense_skyscrapers2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.open
+{
+    color: white;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    float: right;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+}
+
+span.logo
+{
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    float: left;
+    top: 20px;
+    left: 25px;
+    position: absolute;
+}
+
+#title
+{
+    margin-top: 35px;
+    color: white;
+    font-weight: lighter;
+    font-size: 45px;
+    text-align: center;
+}
+
+.overlay
+{
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-x: hidden;
+    transition: 0.4s;
+}
+
+.overlay-content
+{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a
+{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus
+{
+    color: #f1f1f1;
+}
+
+.overlay .closebtn
+{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+sup
+{
+    color: #FE2300;
+}
+
+/* Style the container for inputs */
+.container
+{
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 80px;
+    border-radius: 6px;
+    color: white;
+    border: 2px solid #01DFD7;
+}
+
+.container #sub_title
+{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #01DFD7;
+}
+
+.container .about
+{
+    margin-left: 15px;
+}
+
+/* Le conteneur X3D */
+#x3d_building
+{
+    width: 90%;
+    height: 70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background: rgba(0, 0, 0, 0.7);
+    border-color: #01DFD7;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    margin-bottom: 50px;
+}
+
+#x3d_buttons
+{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 0;
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+}
+
+#x3d_buttons li
+{
+    line-height: 0;
+    list-style-type: none;
+    display: inline;
+    padding: 0;
+    margin: 0 -4px 0 0;
+    float: left;
+}
+#x3d_buttons li input[type=button]
+{
+    font-size: 19px;
+    background-color: rgba(0, 0, 255, 0.6);
+    color: white;
+    font-family: '00499', Arial, sans-serif;
+    display: inline-block;
+    margin-top: -1px;
+    border-radius: 4px;
+    border: 2px solid #01DFD7;
+}
+
+#x3d_buttons li:nth-child(1) input[type=button]
+{
+    margin-left: 10px;
+}
+
+#x3d_buttons li:nth-child(2) input[type=button]
+{
+    margin-left: 20px;
+}
+
+#x3d_buttons li input[type=button]:hover
+{
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.about
+{
+    margin-top: 50px;
+}
+
+/* Mobile responsive */
+@media screen and (max-width : 580px)
+{
+    #title
+    {
+        margin-top: 20px;
+        color: white;
+        font-weight: lighter;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    input
+    {
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 25px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 25px;
+    }
+
+    /* Style the container for inputs */
+    .container {
+        padding: 10px;
+        width: 75%;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    /* The message box is shown when the user clicks on the password field */
+    #message {
+        display: none;
+        width: 75%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .valid:before
+    {
+        font-size: 12px;
+    }
+
+    .invalid:before
+    {
+        font-size: 12px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
+}
+
+@media screen and (min-width: 581px) and (max-width : 800px)
+{
+    #title
+    {
+        margin-top: 20px;
+        color: white;
+        font-weight: lighter;
+        font-size: 35px;
+        text-align: center;
+    }
+
+    input
+    {
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    .overlay a
+    {
+        font-size: 20px;
+    }
+
+    .overlay .closebtn
+    {
+        font-size: 35px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .open
+    {
+        color: white;
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+    }
+
+    /* Style the container for inputs */
+    .container
+    {
+        padding: 15px;
+        width: 65%;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    /* The message box is shown when the user clicks on the password field */
+    #message
+    {
+        display: none;
+        width: 65%;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .valid:before
+    {
+        font-size: 15px;
+    }
+
+    .invalid:before
+    {
+        font-size: 15px;
+    }
+
+    span.logo
+    {
+        display: inline-block;
+        width: 70px;
+        height: 100px;
+        float: left;
+        top: 15px;
+        left: 10px;
+        position: absolute;
+    }
+
+    img
+    {
+        height: 100px;
+        width: 70px;
+    }
+}

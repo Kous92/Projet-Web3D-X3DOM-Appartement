@@ -1,4 +1,19 @@
 <?php
+    session_start();
+
+    if (isset($_SESSION))
+    {
+        unset($_SESSION['auth']);
+        unset($_SESSION['nom']);
+        unset($_SESSION['prenom']);
+        unset($_SESSION['token']);
+        unset($_SESSION['user_id']);
+
+        session_destroy();
+    }
+
+    session_start();
+
     function initialisationMySQL()
     {
         // Connexion à la base de données (méthode 1 avec PDO)
@@ -87,6 +102,21 @@
                         {
                             $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
                         }
+
+                        if (!isset($_SESSION['nom']))
+                        {
+                            $_SESSION['nom'] = $ligne['nom'];
+                        }
+
+                        if (!isset($_SESSION['prenom']))
+                        {
+                            $_SESSION['prenom'] = $ligne['prenom'];
+                        }
+
+                        if (!isset($_SESSION['auth']))
+                        {
+                            $_SESSION['auth'] = true;
+                        }
                     }
                     catch (Exception $e)
                     {
@@ -112,7 +142,7 @@
     {
         // $_POST['password_ajax'] = htmlspecialchars(password_hash($_POST['password_ajax'], PASSWORD_BCRYPT));
         $_POST['password_ajax'] = htmlspecialchars($_POST['password_ajax']);
-        $password = $_POST['password_ajax'];
+        $password = htmlspecialchars($_POST['password_ajax']);
         $email = htmlspecialchars($_POST['email_ajax']);
 
         // echo "Email: \"" . $_POST['email_ajax'] . "\"\n";
@@ -130,8 +160,6 @@
 
             if (connexionUtilisateur($email, $password))
             {
-                session_start();
-
                 if (!isset($_SESSION['user_id']))
                 {
                     // echo "La session n'existe pas";
@@ -145,29 +173,18 @@
                     $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
                 }
 
-                $_SESSION['auth'] = true;
+                if (!isset($_SESSION['auth']))
+                {
+                    $_SESSION['auth'] = true;
+                }
 
                 echo "Success";
-
-                // header("Location: home.php");
-                // exit();
             }
             else
             {
                 echo "IncorrectPassword";
             }
         }
-
-        /*
-        if ((($_POST['email_ajax']) == $username) && (($_POST['password_ajax']) == $password))
-        {
-            echo "Success";
-        }
-        else
-        {
-            echo "Failed";
-        }
-        */
     }
     else
     {

@@ -120,7 +120,8 @@ input
 }
 
 /* Style the submit button */
-input[type=submit] {
+input[type=submit]
+{
     font-size: 19px;
     background-color: rgba(0, 0, 255, 0.6);
     color: white;
@@ -161,12 +162,14 @@ sup
     border-radius: 6px;
 }
 
-#message p {
+#message p
+{
     padding: 10px 35px;
     font-size: 18px;
 }
 
-#message2 {
+#message2
+{
     display: none;
     width: 55%;
     margin: auto;
@@ -178,17 +181,20 @@ sup
     border-radius: 6px;
 }
 
-#message2 p {
+#message2 p
+{
     padding: 10px 35px;
     font-size: 18px;
 }
 
-#message_email p {
+#message_email p
+{
     padding: 10px 35px;
     font-size: 18px;
 }
 
-#message_email {
+#message_email
+{
     display: none;
     width: 55%;
     margin: auto;

@@ -46,15 +46,42 @@
 <div class="container">
     <form action="" method="post">
         <label for="user_email" class="user_email">Adresse e-mail</label>
-        <input type="text" id="user_email" name="user_email" value="<?php echo $_SESSION['user_id'] ?>">
+        <?php
+            if (isset($_SESSION['user_id']))
+            {
+                echo "<input type=\"text\" id=\"user_email\" name=\"user_email\" value=\"" . $_SESSION['user_id'] ."\">";
+            }
+            else
+            {
+                echo "<input type=\"text\" id=\"user_email\" name=\"user_email\">";
+            }
+        ?>
         <p id="invalid_email"></p>
 
         <label for="nom" class="nom">Nom</label>
-        <input type="text" id="nom" name="nom">
+        <?php
+            if (isset($_SESSION['nom']))
+            {
+                echo "<input type=\"text\" id=\"nom\" name=\"nom\" value=\"" . $_SESSION['nom']. "\">";
+            }
+            else
+            {
+                echo "<input type=\"text\" id=\"nom\" name=\"nom\">";
+            }
+        ?>
         <p id="invalid_nom"></p>
 
         <label for="prenom" class="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom">
+        <?php
+            if (isset($_SESSION['prenom']))
+            {
+                echo "<input type=\"text\" id=\"prenom\" name=\"prenom\" value=\"" . $_SESSION['prenom']. "\">";
+            }
+            else
+            {
+                echo "<input type=\"text\" id=\"prenom\" name=\"prenom\">";
+            }
+        ?>
         <p id="invalid_prenom"></p>
 
         <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token'] ?>">
@@ -69,13 +96,6 @@
     <p id="email_message" class="invalid">L'adresse email est de la forme nom@serveur.domaine</p>
 </div>
 
-<div id="message">
-    <h3>Le mot de passe doit contenir au moins une fois les éléments suivants:</h3>
-    <p id="letter" class="invalid">Une lettre <b>minuscule</b>.</p>
-    <p id="capital" class="invalid">Une lettre <b>majuscule</b>.</p>
-    <p id="number" class="invalid">Un <b>chiffre</b>.</p>
-    <p id="length" class="invalid"><b>8 caractères</b> minimum.</p>
-</div>
 </body>
 <script type="text/javascript" src="./JS/form_account.js"></script>
 </html>

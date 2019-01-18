@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log('Récupération des données du compte.');
+    console.log('Récupération des données du compte du mail: ' + $("#user_email").val() + "\n");
 
     var email = "";
     var prenom = "";
@@ -7,14 +7,21 @@ $(document).ready(function() {
     var token = "";
 
     $.post('Utilisateur.php', {
-        account_ajax: true
+        account_ajax: true,
+        user_id: $("#user_email").val(),
+        token: $("#token").val()
     }, function(data) {
         console.log(data);
+        var json_array = jQuery.makeArray(data);
+        console.log(json_array);
+        console.log(json_array[0]);
     }, 'text');
 
     // Listener au clic sur le bouton de connexion (submit)
     $("#update").on('click', function(e){
         e.preventDefault();
+
+        console.log("Mise à jour des informations du compte");
 
         email = $("#user_email").val();
         console.log("Email saisi: " + $("#user_email").val());
@@ -93,6 +100,8 @@ $(document).ready(function() {
         }
         else
         {
+            console.log("Connexion...");
+
             $("#invalid_email").css("display", "none").html("");
             $("#invalid_nom").css("display", "none").html("");
             $("#invalid_prenom").css("display", "none").html("");
@@ -109,6 +118,43 @@ $(document).ready(function() {
                 email: email
             }, function(data) {
                 console.log(data);
+
+                if (data === "UpdatedAll")
+                {
+                    $("#response").html("Vos informations ont été mises à jour.");
+                }
+                else if (data === "UpdatedNomEmail")
+                {
+                    $("#response").html("L'adresse email et le nom ont été mis à jour.");
+                }
+                else if (data === "UpdatedPrenomEmail")
+                {
+                    $("#response").html("L'adresse email et le prénom ont été mis à jour.");
+                }
+                else if (data === "UpdatedNomPrenom")
+                {
+                    $("#response").html("L'adresse email et le prénom ont été mis à jour.");
+                }
+                else if (data === "UpdatedEmail")
+                {
+                    $("#response").html("L'adresse email a été mise à jour.");
+                }
+                else if (data === "UpdatedNom")
+                {
+                    $("#response").html("Le nom a été mis à jour.");
+                }
+                else if (data === "UpdatedPrenom")
+                {
+                    $("#response").html("Le prénom a été mis à jour.");
+                }
+                else if (data === "NoUpdate")
+                {
+                    $("#response").html("Pas de modifications apparentes.");
+                }
+                else
+                {
+                    $("#response").html("Une erreur est survenue.");
+                }
             }, 'text');
         }
     })

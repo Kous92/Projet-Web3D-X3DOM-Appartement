@@ -107,8 +107,6 @@
         }
     }
 
-    // $username = "kous92@gmail.com";
-    // $password = "PSGefrei2018";
     // print_r($_POST);
 
     if (isset($_POST['email_ajax']) && isset($_POST['password_ajax']) && isset($_POST['password_confirm_ajax']))
@@ -141,17 +139,6 @@
                 echo "Failed";
             }
         }
-
-        /*
-        if ((($_POST['email_ajax']) == $username) && (($_POST['password_ajax']) == $password))
-        {
-            echo "Success";
-        }
-        else
-        {
-            echo "Failed";
-        }
-        */
     }
     else
     {

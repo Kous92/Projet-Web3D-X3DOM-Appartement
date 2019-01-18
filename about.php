@@ -28,15 +28,15 @@
             if ((isset($_SESSION)) && (isset($_SESSION['user_id'])))
             {
                 echo "<a href=\"logout.php\">Déconnexion</a>
-                <a href=\"account.php\">Gestion du compte</a>";
+                <a href=\"account.php\">Gestion du compte</a>
+                <a href=\"visitor.php\">Visiter l'appartement</a>";
             }
             else
             {
-                echo "<a href=\"login.php\">Connexion</a>";
+                echo "<a href=\"login.php\">Connexion</a>
+                <a href=\"register.php\">Inscription</a>";
             }
         ?>
-	    <a href="register.php">Inscription</a>
-	    <a href="visitor.php">Visiter l'appartement</a>
 	  </div>
 
 	</div>
