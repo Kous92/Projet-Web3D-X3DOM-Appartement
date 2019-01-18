@@ -344,133 +344,141 @@ if (isset($_POST['ajax_account']) && isset($_POST['ajax_update']))
 
     if ($_POST['ajax_update'] == true)
     {
-        $nom = null;
-        $prenom = null;
-        $email = null;
-
-        // echo "Test de mise à jour\n";
-
-        if (isset($_POST['user_id']) || (isset($_SESSION['user_id'])))
+        // Authentification de la transaction
+        if (isset($_POST['token']) && ($_POST['token'] == $_SESSION['token']))
         {
-            if (isset($_POST['user_id']))
+            $nom = null;
+            $prenom = null;
+            $email = null;
+
+            // echo "Test de mise à jour\n";
+
+            if (isset($_POST['user_id']) || (isset($_SESSION['user_id'])))
             {
-                $utilisateur = new Utilisateur();
-                $utilisateur = $utilisateur->constructor($_POST['user_id']);
+                if (isset($_POST['user_id']))
+                {
+                    $utilisateur = new Utilisateur();
+                    $utilisateur = $utilisateur->constructor($_POST['user_id']);
+                }
+                else
+                {
+                    $utilisateur = new Utilisateur();
+                    $utilisateur = $utilisateur->constructor($_SESSION['user_id']);
+                }
+
+
+                if (isset($_POST['nom']))
+                {
+                    $nom = htmlspecialchars($_POST['nom']);
+                    // echo "Nom défini sur: " . $nom . "\n";
+                    $utilisateur->setNom(htmlspecialchars($_POST['nom']));
+                }
+
+                if (isset($_POST['prenom']))
+                {
+                    $prenom = htmlspecialchars($_POST['prenom']);
+                    // echo "Prénom défini sur: " . $prenom . "\n";
+                    $utilisateur->setPrenom(htmlspecialchars($_POST['prenom']));
+                }
+
+                if (isset($_POST['email']))
+                {
+                    $email = htmlspecialchars($_POST['email']);
+                    // echo "Email défini sur: " . $email . "\n";
+                    $utilisateur->setEmail(htmlspecialchars($_POST['email']));
+                }
+
+                $email_modifie = 0;
+                $prenom_modifie = 0;
+                $nom_modifie = 0;
+
+                // echo "email: " . $email_modifie . "\nnom: " . $nom_modifie . "\nprenom:" . $prenom_modifie . "\n";
+
+                if (strlen($email) > 0)
+                {
+                    // echo "MAJ1\n";
+
+                    if ($utilisateur->miseAJourEmailUtilisateur())
+                    {
+                        $email_modifie = 1;
+                    }
+                    else
+                    {
+                        $email_modifie = 0;
+                    }
+                }
+
+                if (strlen($prenom) > 0)
+                {
+                    // echo "MAJ2\n";
+
+                    if ($utilisateur->miseAJourPrenomUtilisateur())
+                    {
+                        $prenom_modifie = 1;
+                    }
+                    else
+                    {
+                        $prenom_modifie = 0;
+                    }
+                }
+
+                if (strlen($nom) > 0)
+                {
+                    // echo "MAJ3\n\n";
+
+                    if ($utilisateur->miseAJourNomUtilisateur())
+                    {
+                        $nom_modifie = 1;
+                    }
+                    else
+                    {
+                        $nom_modifie = 0;
+                    }
+                }
+
+                // echo "email: " . $email_modifie . "\nnom: " . $nom_modifie . "\nprenom:" . $prenom_modifie . "\n";
+
+                if (($email_modifie == 1) && ($nom_modifie == 1) && ($prenom_modifie == 1))
+                {
+                    echo "UpdatedAll";
+                }
+                else if (($email_modifie == 1) && ($nom_modifie == 1))
+                {
+                    echo "UpdatedNomEmail";
+                }
+                else if (($email_modifie == 1) && ($prenom_modifie == 1))
+                {
+                    echo "UpdatedPrenomEmail";
+                }
+                else if (($prenom_modifie == 1) && ($nom_modifie == 1))
+                {
+                    echo "UpdatedNomPrenom";
+                }
+                else if ($email_modifie == 1)
+                {
+                    echo "UpdatedEmail";
+                }
+                else if ($nom_modifie == 1)
+                {
+                    echo "UpdatedNom";
+                }
+                else if ($prenom_modifie == 1)
+                {
+                    echo "UpdatedPrenom";
+                }
+                else
+                {
+                    echo "NoUpdate";
+                }
             }
             else
             {
-                $utilisateur = new Utilisateur();
-                $utilisateur = $utilisateur->constructor($_SESSION['user_id']);
-            }
-
-
-            if (isset($_POST['nom']))
-            {
-                $nom = htmlspecialchars($_POST['nom']);
-                // echo "Nom défini sur: " . $nom . "\n";
-                $utilisateur->setNom(htmlspecialchars($_POST['nom']));
-            }
-
-            if (isset($_POST['prenom']))
-            {
-                $prenom = htmlspecialchars($_POST['prenom']);
-                // echo "Prénom défini sur: " . $prenom . "\n";
-                $utilisateur->setPrenom(htmlspecialchars($_POST['prenom']));
-            }
-
-            if (isset($_POST['email']))
-            {
-                $email = htmlspecialchars($_POST['email']);
-                // echo "Email défini sur: " . $email . "\n";
-                $utilisateur->setEmail(htmlspecialchars($_POST['email']));
-            }
-
-            $email_modifie = 0;
-            $prenom_modifie = 0;
-            $nom_modifie = 0;
-
-            // echo "email: " . $email_modifie . "\nnom: " . $nom_modifie . "\nprenom:" . $prenom_modifie . "\n";
-
-            if (strlen($email) > 0)
-            {
-                // echo "MAJ1\n";
-
-                if ($utilisateur->miseAJourEmailUtilisateur())
-                {
-                    $email_modifie = 1;
-                }
-                else
-                {
-                    $email_modifie = 0;
-                }
-            }
-
-            if (strlen($prenom) > 0)
-            {
-                // echo "MAJ2\n";
-
-                if ($utilisateur->miseAJourPrenomUtilisateur())
-                {
-                    $prenom_modifie = 1;
-                }
-                else
-                {
-                    $prenom_modifie = 0;
-                }
-            }
-
-            if (strlen($nom) > 0)
-            {
-                // echo "MAJ3\n\n";
-
-                if ($utilisateur->miseAJourNomUtilisateur())
-                {
-                    $nom_modifie = 1;
-                }
-                else
-                {
-                    $nom_modifie = 0;
-                }
-            }
-
-            // echo "email: " . $email_modifie . "\nnom: " . $nom_modifie . "\nprenom:" . $prenom_modifie . "\n";
-
-            if (($email_modifie == 1) && ($nom_modifie == 1) && ($prenom_modifie == 1))
-            {
-                echo "UpdatedAll";
-            }
-            else if (($email_modifie == 1) && ($nom_modifie == 1))
-            {
-                echo "UpdatedNomEmail";
-            }
-            else if (($email_modifie == 1) && ($prenom_modifie == 1))
-            {
-                echo "UpdatedPrenomEmail";
-            }
-            else if (($prenom_modifie == 1) && ($nom_modifie == 1))
-            {
-                echo "UpdatedNomPrenom";
-            }
-            else if ($email_modifie == 1)
-            {
-                echo "UpdatedEmail";
-            }
-            else if ($nom_modifie == 1)
-            {
-                echo "UpdatedNom";
-            }
-            else if ($prenom_modifie == 1)
-            {
-                echo "UpdatedPrenom";
-            }
-            else
-            {
-                echo "NoUpdate";
+                echo "Erreur MAJ\n";
             }
         }
         else
         {
-            echo "Erreur MAJ\n";
+            echo "TokenError\n";
         }
     }
 }

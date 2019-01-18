@@ -3,37 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="edfbd30e-3ac1-417a-85e1-a8f836223275" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/ajax_account.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/ajax_account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/ajax_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/ajax_login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/ajax_register.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/ajax_register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utilisateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web &amp; 3D_files/form_login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web &amp; 3D_files/jquery-3.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web &amp; 3D_files/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web &amp; 3D_files/navigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/img/cd-background-img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/img/cd-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/img/cd-socials.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/img/moscow_skyscrapers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/js/jquery-2.1.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/js/modernizr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/partials/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/partials/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/partials/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-screen-popout-navigation-master/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fullscreen-menu-type-1/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,20 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utilisateur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CSS/agency.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1950">
-              <caret line="130" column="10" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
+            <state relative-caret-position="320">
+              <caret line="347" column="78" lean-forward="true" selection-start-line="347" selection-start-column="78" selection-end-line="347" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -109,13 +71,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bdd.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="48" column="2" lean-forward="true" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
+            <state relative-caret-position="330">
+              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="270">
+                <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logout.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -176,8 +155,9 @@
         <option value="$PROJECT_DIR$/JS/ajax_login.js" />
         <option value="$PROJECT_DIR$/JS/ajax_register.js" />
         <option value="$PROJECT_DIR$/JS/ajax_account.js" />
-        <option value="$PROJECT_DIR$/Utilisateur.php" />
         <option value="$PROJECT_DIR$/bdd.sql" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Utilisateur.php" />
       </list>
     </option>
   </component>
@@ -290,7 +270,7 @@
       <workItem from="1547734751598" duration="106000" />
       <workItem from="1547745213305" duration="125000" />
       <workItem from="1547757745871" duration="13796000" />
-      <workItem from="1547776638932" duration="3017000" />
+      <workItem from="1547776638932" duration="4203000" />
     </task>
     <task id="LOCAL-00001" summary="Première interaction AJAX avec le PHP">
       <created>1544458063964</created>
@@ -334,14 +314,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547775913994</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fin du projet :)">
+      <created>1547780071974</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547780071974</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fin du projet :)">
+      <created>1547780644345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547780644345</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87883000" />
+    <option name="totallyTimeSpent" value="89069000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-235" y="39" width="1280" height="721" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.84737676" visible="true" weight="0.17124394" />
@@ -397,7 +391,8 @@
     <MESSAGE value="Ajout des sessions." />
     <MESSAGE value="Avancement avec la gestion de compte" />
     <MESSAGE value="Fin du projet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fin du projet" />
+    <MESSAGE value="Fin du projet :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fin du projet :)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/JS/navigation.js">
@@ -462,7 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logout.php" />
     <entry file="file://$PROJECT_DIR$/home.php" />
     <entry file="file://$PROJECT_DIR$/about.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -583,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utilisateur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -599,8 +586,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bdd.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="48" column="2" lean-forward="true" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
+        <state relative-caret-position="330">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="270">
+            <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilisateur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="347" column="78" lean-forward="true" selection-start-line="347" selection-start-column="78" selection-end-line="347" selection-end-column="78" />
         </state>
       </provider>
     </entry>
